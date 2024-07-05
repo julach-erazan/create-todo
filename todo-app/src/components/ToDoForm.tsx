@@ -28,14 +28,26 @@ const ToDoForm: React.FC<ToDoFormProps> = ({ onSubmit, defaultValues }) => {
   };
 
   return (
-    <div className="w-full min-h-[150px] flex justify-center items-center p-[10px]">
-      <form onSubmit={handleSubmit(submitHandler)}>
-        <textarea 
-        className="w-[500px] h-[100px]"
-        {...register("todo")} placeholder="Description" 
+    <div className="w-full min-h-[150px] flex justify-center items-center px-[10px] py-[20px]">
+      <form
+        onSubmit={handleSubmit(submitHandler)}
+        className="flex flex-col justify-center items-center"
+      >
+        <textarea
+          className="w-[500px] h-[100px] border-[2px] border-solid border-[#e6deeb] p-[10px] rounded-[15px]"
+          {...register("todo")}
+          placeholder="New Task..."
         />
         {errors.description && <p>{errors.description.message}</p>}
-        <button type="submit">Submit</button>
+        <button
+          type="submit"
+          className="
+          w-full h-[40px] bg-[#e6deeb] mt-[10px] rounded-[20px] text-[#9191dd] font-[600]
+          hover:bg-[#9191dd] hover:text-[#e6deeb]
+        "
+        >
+          Add New Task
+        </button>
       </form>
     </div>
   );

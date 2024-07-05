@@ -9,22 +9,34 @@ const LanguageSwitcher: React.FC = () => {
   };
 
   return (
-    <div className="flex justify-end p-4">
+    <div className="w-[130px] flex justify-between p-[10px]">
       <button
         onClick={() => changeLanguage("en")}
-        className={`mx-2 px-4 py-2 ${
-          i18n.language === "en" ? "bg-blue-500 text-white" : "bg-gray-200"
+        className={`w-[50px] h-[30px] rounded-[25px] border-[2px] border-solid border-[#9191dd]${
+          i18n.language === "en" ? "" : ""
         }`}
       >
-        EN
+        <span
+          className={`${
+            i18n.language === "en" ? "text-[#fff]" : "text-[#9191dd]"
+          }`}
+        >
+          EN
+        </span>
       </button>
       <button
         onClick={() => changeLanguage("si")}
-        className={`mx-2 px-4 py-2 ${
-          i18n.language === "si" ? "bg-blue-500 text-white" : "bg-gray-200"
+        className={`w-[50px] rounded-[25px] border-[2px] border-solid border-[#9191dd]${
+          i18n.language === "si" ? "" : ""
         }`}
       >
-        SI
+        <span
+          className={`${
+            i18n.language === "si" ? "text-[#fff]" : "text-[#9191dd]"
+          }`}
+        >
+          SI
+        </span>
       </button>
     </div>
   );

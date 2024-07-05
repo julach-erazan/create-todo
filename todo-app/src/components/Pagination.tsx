@@ -16,7 +16,7 @@ const Pagination: React.FC<PaginationProps> = ({
   const totalPages = Math.ceil(totalItems / itemsPerPage);
 
   return (
-    <div className="flex justify-center mt-4">
+    <div className="flex justify-center mt-[20px]">
       {[...Array(totalPages)].map((_, index) => (
         <button
           key={index}

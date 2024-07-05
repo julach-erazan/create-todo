@@ -1,3 +1,4 @@
-body{
-    color: #0000004b;
+textarea:focus{
+    outline: none;
+    border: 2px solid #9191dd;
 }

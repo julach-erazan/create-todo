@@ -38,7 +38,7 @@ const TodoList: React.FC = () => {
   );
 
   return (
-    <div>
+    <div className="w-full min-w-[500px] px-[40px]">
       {paginatedTodos.map((todo) => (
         <TodoItem
           key={todo.id}
@@ -54,7 +54,13 @@ const TodoList: React.FC = () => {
         onPageChange={setCurrentPage}
       />
       {isPopupVisible ? (
-        <div className="w-full h-full backdrop-blur-sm absolute top-0 z-100">
+        <div 
+          className="
+            w-full h-full backdrop-blur-sm 
+            absolute top-0 left-0 z-100
+            flex justify-center items-center
+          "
+      >
           <ToDo
             id={editingTodo.id}
             todo={editingTodo.todo}
