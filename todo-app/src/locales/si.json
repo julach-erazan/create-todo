@@ -1,0 +1,14 @@
+{
+  "title": "Aplikacija za opravila",
+  "createTodo": "Ustvari opravilo",
+  "updateTodo": "Posodobi opravilo",
+  "deleteTodo": "Izbriši opravilo",
+  "todoTitle": "Naslov",
+  "todoDescription": "Opis",
+  "submit": "Pošlji",
+  "todoList": "Seznam opravil",
+  "pagination": {
+    "prev": "Prejšnja",
+    "next": "Naslednja"
+  }
+}

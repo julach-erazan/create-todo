@@ -1,0 +1,14 @@
+{
+  "title": "Todo App",
+  "createTodo": "Create Todo",
+  "updateTodo": "Update Todo",
+  "deleteTodo": "Delete Todo",
+  "todoTitle": "Title",
+  "todoDescription": "Description",
+  "submit": "Submit",
+  "todoList": "Todo List",
+  "pagination": {
+    "prev": "Previous",
+    "next": "Next"
+  }
+}
