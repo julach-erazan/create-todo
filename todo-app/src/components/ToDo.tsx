@@ -32,7 +32,14 @@ const ToDo: React.FC<ToDoProps> = ({ id, todo, onClose }) => {
       }),
     })
       .then((res) => res.json())
-      .then(console.log);
+      .then((res) => {
+        console.log(res);
+        alert("Updated Succesfully.")
+        setViewEdit(true);
+      }).catch((err) =>{
+        console.log(err);
+        setViewEdit(true);
+      })
   };
 
   return (
@@ -53,11 +60,27 @@ const ToDo: React.FC<ToDoProps> = ({ id, todo, onClose }) => {
                 </h1>
               </div>
               <div className="p-[15px]">
-                <p>{text}</p>
-                <button onClick={onClose}>Close</button>
-                <button onClick={handleViewEdit}>
+                <div className="w-full h-[350px] border-[2px] border-solid border-[#e6deeb] p-[10px] rounded-[15px]">
+                  <p>{text}</p>
+                </div>
+                <div className="flex justify-between items-center">
+                <button 
+                  onClick={onClose}
+                  className="
+                  w-[70%] h-[40px] bg-[#e6deeb] mt-[10px] rounded-[20px] text-[#9191dd] font-[600]
+                  hover:bg-[#9191dd] hover:text-[#e6deeb]
+                "
+                >Close</button>
+                <button 
+                  onClick={handleViewEdit}
+                  className="
+                  w-[28%] h-[40px] bg-[#e6deeb] mt-[10px] rounded-[20px] text-[#9191dd] font-[600]
+                  hover:bg-[#9191dd] hover:text-[#e6deeb] flex justify-center items-center text-[green]
+                "
+                >
                   <Pencil size={20} />
                 </button>
+                </div>
               </div>
             </div>
           ) : null}
@@ -78,7 +101,7 @@ const ToDo: React.FC<ToDoProps> = ({ id, todo, onClose }) => {
           <div className="p-[15px]">
             <form onSubmit={(e) => handleSubmit(e)}>
               <textarea
-                className="w-[100%] h-[100px] border-[2px] border-solid border-[#e6deeb] p-[10px] rounded-[15px]"
+                className="w-[100%] h-[300px] border-[2px] border-solid border-[#e6deeb] p-[10px] rounded-[15px]"
                 placeholder="Description"
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}

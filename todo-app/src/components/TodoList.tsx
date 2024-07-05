@@ -20,7 +20,12 @@ const TodoList: React.FC = () => {
       method: "DELETE",
     })
       .then((res) => res.json())
-      .then(console.log);
+      .then((res) => {
+        console.log(res);
+        alert("Deleted Succesfully.")
+      }).catch((err) => {
+        console.log(err);
+      })
   };
 
   const handleClosePopup = () => {

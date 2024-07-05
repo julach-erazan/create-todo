@@ -10,7 +10,7 @@ type ToDoFormProps = {
 };
 
 const schema = yup.object().shape({
-  todo: yup.string().required(),
+  todo: yup.string().required("Task description is required."),
 });
 
 const ToDoForm: React.FC<ToDoFormProps> = ({ onSubmit, defaultValues }) => {
@@ -18,6 +18,7 @@ const ToDoForm: React.FC<ToDoFormProps> = ({ onSubmit, defaultValues }) => {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm<Todo>({
     resolver: yupResolver(schema),
     defaultValues,
@@ -25,6 +26,24 @@ const ToDoForm: React.FC<ToDoFormProps> = ({ onSubmit, defaultValues }) => {
 
   const submitHandler: SubmitHandler<Todo> = (data) => {
     onSubmit(data);
+    fetch('https://dummyjson.com/todos/add', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        todo: data.todo,
+        completed: false,
+        userId: 1,
+      })
+    })
+    .then(res => res.json())
+    .then((res) => {
+      console.log(res);
+      alert("Task created successfully.");
+      reset();
+    }).catch((err) => {
+      console.log(err);
+      reset();
+    })
   };
 
   return (
@@ -38,7 +57,7 @@ const ToDoForm: React.FC<ToDoFormProps> = ({ onSubmit, defaultValues }) => {
           {...register("todo")}
           placeholder="New Task..."
         />
-        {errors.description && <p>{errors.description.message}</p>}
+        {errors.todo && <p className="w-full h-[30px] border-[2px] border-solid border-[#FF8383] rounded-[15px] p-[5px] mt-[15px] text-[#FF8383] flex justify-center items-center">{errors.todo.message}</p>}
         <button
           type="submit"
           className="

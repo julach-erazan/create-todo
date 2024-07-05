@@ -12,9 +12,9 @@ const LanguageSwitcher: React.FC = () => {
     <div className="w-[130px] flex justify-between p-[10px]">
       <button
         onClick={() => changeLanguage("en")}
-        className={`w-[50px] h-[30px] rounded-[25px] border-[2px] border-solid border-[#9191dd]${
-          i18n.language === "en" ? "" : ""
-        }`}
+        className={`w-[50px] h-[30px] rounded-[25px] border-[2px] border-solid border-[#9191dd] 
+        ${i18n.language === "en" ? "bg-[#9191dd]" : ""}
+        `}
       >
         <span
           className={`${
@@ -26,9 +26,9 @@ const LanguageSwitcher: React.FC = () => {
       </button>
       <button
         onClick={() => changeLanguage("si")}
-        className={`w-[50px] rounded-[25px] border-[2px] border-solid border-[#9191dd]${
-          i18n.language === "si" ? "" : ""
-        }`}
+        className={`w-[50px] h-[30px] rounded-[25px] border-[2px] border-solid border-[#9191dd] 
+        ${i18n.language === "si" ? "bg-[#9191dd]" : ""}
+        `}
       >
         <span
           className={`${
