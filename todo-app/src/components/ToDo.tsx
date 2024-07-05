@@ -24,7 +24,7 @@ const ToDo: React.FC<ToDoProps> = ({ id, todo, onClose }) => {
   const handleSubmit = (e: any) => {
     e.preventDefault();
 
-    fetch(`https://dummyjson.com/todos/${title}`, {
+    fetch(`https://dummyjson.com/todos/${id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
